@@ -3,10 +3,10 @@ a scategories type thing but it's anime related, for use by the anime club
 first patch made 05/06/23 by Rayha
 
 Author/s: Rayha
-Version: 1.2
+Version: 1.3
 Date updated: 05/06/23
 Extra notes:
-used chatgpt to make the lists
+used chatgpt to make parts of this
 """
 
 # CONSTANTS
@@ -101,11 +101,17 @@ def scattegories():
 
     
 def easy():
+    """
+    easy mode
+    one letter, multiple catgories
+    """
+    
     # setting the variable to send to function
     number_of = 1
     # getting letter
     letter = alphabet[number_of]
-    
+
+    # prints the stuff
     print("you have chossen easy mode")
     num = many(number_of)
     print("The letter for this round is...")
@@ -117,12 +123,25 @@ def easy():
     
     
     
-
 def hard():
+    """
+    hard mode
+    multiple letters and categories
+    """
     # setting the variable to send to function
     number_of = 1
-    
+
+    # prints the stuff
     print("you have chossen hard mode")
+    # setting num of letter and variable
+    num = many(number_of)
+    print("the formt of this round is: ")
+    print("letter . category")
+    for i in range(num):
+        letter = alphabet[i]
+        category = categories[i]
+        print(letter + " . " + category + "\n")
+    
     
 
 # mains routine
