@@ -3,8 +3,8 @@ a scategories type thing but it's anime related, for use by the anime club
 first patch made 05/06/23 by Rayha
 
 Author/s: Rayha
-Version: 1.4
-Date updated: 05/06/23
+Version: 1.6
+Date updated: 07/06/23
 Extra notes:
 used chatgpt to make parts of this
 """
@@ -23,29 +23,39 @@ categories = [
     "Studios",
     "Movies",
     "Series",
-    "Soundtracks",
-    "Adaptations",
     "Openings/Endings",
-    "Cosplay",
-    "Conventions",
-    "Streaming Platforms",
-    "Crossovers",
-    "Fandom",
+    "Streaming Platforms (aka illegal websites lol)",
     "Merchandise",
-    "Voice Actors",
-    "Art Styles",
-    "Directors",
     "Symbolism",
-    "Mecha",
-    "Romance",
     "Fantasy Worlds",
     "Slice of Life",
     "Strong Female Characters",
     "Antiheroes",
     "Villains",
-    "Comedy",
-    "Fan Art"
+    "Anime",
+    "Manga",
+    "Manga artists/ authors",
+    "Animals",
+    "Male Protagonist",
+    "Female Protagonist",
+    "Protagonist",
+    "Powers/ Skills",
+    "Schools",
+    "Characters",
+    "Antagonist",
+    "Anime Style RPGS",
+    "Anime style video games",
+    "a character from an Anime game"
 ]
+
+hard_cats = [
+    "Soundtracks",
+    "Adaptations",
+    "Conventions",
+    "Voice Actors",
+    "Directors",
+    "Mecha"
+    ]
 
 # letters
 alphabet = [
@@ -57,7 +67,7 @@ def demo():
     """
     a demo to show how it works
     """
-    print("***** Welocome to Anime Scattegories! *****")
+    print("***** Welocome to Anime & Manga Scattegories! *****")
     print("the rules are simple:")
     print("* Pick a mode, E for easy and H for hard (Or press X to exit)")
     print("* Easy gives you one letter for all the catgories")
@@ -79,17 +89,19 @@ def scattegories():
     basically the main routine, asks for the mode
     and then directs you to correct function
     """
-    
-    # shuffle lists
-    random.shuffle(categories)
-    random.shuffle(alphabet)
 
     # loop to pick and/or exit
     while True:
-        print("\n\n\npress x to exit")
-        game = input("(E)asy or (H)ard mode: ")
+        print("\n\n*****INSTRUCTIONS*****")
+        print("* Press 'E' for Easy")
+        print("* Press 'M' for Medium")
+        print("* Press 'H' for Hard(only if you dare)")
+        print("# and press 'X' to exit :(")
+        game = input("So, what will it be? ")
         if game == 'e' or game == 'E':
             easy()
+        elif game == 'm' or game == 'M':
+            med()
         elif game == 'h' or game == 'H':
             hard()
         elif game == 'x' or game == "X":
@@ -102,6 +114,9 @@ def many(num):
     """
     how many catgories or letter do u want?
     """
+    # shuffle lists
+    random.shuffle(categories)
+    random.shuffle(alphabet)
     
     while True:
         try:
@@ -140,14 +155,14 @@ def easy():
     print("**********  " + letter + "  **********")
     print("and you categories are...\n")
     for i in range(num):
-        print(categories[i] + "\n")
+        print("* " + categories[i] + "\n")
     print("you have 5 mins, go!")
     
     
     
-def hard():
+def med():
     """
-    hard mode
+    meidum mode
     multiple letters and categories
     """
     # setting the variable to send to function
@@ -157,12 +172,33 @@ def hard():
     print("you have chossen hard mode")
     # setting num of letter and variable
     num = many(number_of)
+    
     print("the formt of this round is: ")
     print("letter . category")
     for i in range(num):
         letter = alphabet[i]
         category = categories[i]
-        print(letter + " . " + category + "\n")
+        print("\n" + letter + " . " + category)
+
+def hard():
+    """
+    hard mode
+    multiple letters and hard categories
+    """
+    # setting the variable to send to function
+    number_of = 1
+
+    # prints the stuff
+    print("you have chossen hard mode")
+    # setting num of letter and variable
+    num = len(hard_cats)
+    
+    print("the formt of this round is: ")
+    print("letter . category")
+    for i in range(num):
+        letter = alphabet[i]
+        category = hard_cats[i]
+        print("\n" + letter + " . " + category)
     
     
 
@@ -173,4 +209,3 @@ if __name__ == '__main__':
     # forever loop
     while True:
         scattegories()
-    
