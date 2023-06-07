@@ -4,7 +4,7 @@ first patch made 05/06/23 by Rayha
 
 Author/s: Rayha
 Other Contributors: Amelia, Silvia
-Version: 1.4
+Version: 1.7
 Date updated: 05/06/23
 Extra notes:
 - used chatgpt to make parts of this
@@ -12,12 +12,12 @@ Extra notes:
   entire list
 """
 
+# for the shuffles
+import random
+
 # CONSTANTS
 
 # variables
-
-# for the shuffles
-import random
 
 # categories
 categories = [
@@ -225,14 +225,14 @@ def hard():
     for i in range(num):
         letter = alphabet[i]
         category = hard_cats[i]
-        print("\n" + letter + " . " + category + "\n")
+        print(letter + " . " + category + "\n")
     
     
 
 # mains routine
 if __name__ == '__main__':
 
-    demo()
+    demo()        
     # forever loop
     while True:
         scattegories()
